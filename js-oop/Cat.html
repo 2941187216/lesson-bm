@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // js lei
+        // 猫：抽象 广
+        // 属性：描述 类 特点
+        // 方法：描述 类 干什么
+        function Cat (name, color) {
+            // this 依然很抽象 指向哪里 不确定 不知道
+            this.name = name;
+            this.color = color;
+        }
+        // 每一个函数都自带有一个 prototy 的至，我们把方法 挂在上面
+        Cat.prototype.say = function() {
+            console.log('喵喵~');
+        }
+        // 具象
+        // 发生 new 猫 就被确定下来
+        let cat1 = new Cat('Ming','black');
+        let cat2 = new Cat('Scout', 'white');
+        let cat3 = new Cat('Scout', 'white');
+        console.log(cat1);
+        // 封装一个 sum 函数
+        function sum(a, b) {
+            return a + b;
+        }
+        sum(10, 20);
+        sum(20, 20);
+    </script>
+</body>
+</html>

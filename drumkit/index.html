@@ -63,9 +63,25 @@
     const ele = document
       .querySelector(`audio[data-key="${keyCode}"]`)
     console.log(ele);
-    if (ele) {
-      ele.play();
-    }
+    if(ele){
+            ele.play()
+            keys.forEach(function(event){
+                
+                if(event.innerText==key){
+                    event.parentNode.classList.add('playing')
+                    console.log(event.parentNode.classList)
+                }
+                else{
+                    event.parentNode.classList.remove('playing')
+                }
+            })
+           
+        }
+        else{
+           // event.traget.classList.remove('playing')
+        }
+    
+
   } 
   window.addEventListener('keydown', playSound)
   </script>

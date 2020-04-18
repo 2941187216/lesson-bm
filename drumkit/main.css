@@ -41,3 +41,7 @@ html {
   letter-spacing: 0.1rem;
   color: #ffc600;
 }
+.keys .playing {
+  border: 0.4rem solid #ff0;
+  transition: all 0.4s;
+}

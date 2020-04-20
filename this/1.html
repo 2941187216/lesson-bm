@@ -1,0 +1,64 @@
+<script>
+    // window = {
+    //     a:'global variable'
+    // }
+    var obj = {
+        name:'name',
+        a: 'obj a'
+    }
+    // 全局变量
+    var a = 'global variable'
+    function foo (b, c){
+        // this === window
+        console.log(this);
+        // 获取全局下面的a
+        console.log(this.a + b, c);
+    }
+    // 全局变量window 打开浏览器窗口就存在
+    // 运行时决定 this
+    //document.createElement('div');
+    //fetch('www.baidu.com');
+
+    // 1: 不加任何修饰，用（）调用，this默认指向window
+    // foo()
+    // 2: call 也调用这个函数的,apply
+    // 第一个参数可以指定函数调用时需要的 this
+    // 往后的参数 就是 foo 调用时的形参
+    // foo.call(window, 'b','c varible')
+    // foo.call(obj, 'b','c var')
+    // 往后的参数要用数组包起来
+    // 3: 对象. 调用
+    foo.apply(obj,['b','c var'])
+
+    // foo('b') this 默认指向window
+    // call/apply 调用，指向我们的第一个参数
+</script>
+
+<script>
+    //console.log('2',a);
+</script>
+
+<script>
+    var obj1 = {
+        a:1,
+        say: function(){
+            console.log(this.a)
+        }
+    }
+
+    var obj2 = {
+        a: 2,
+        say1: function(){
+            obj1.say.call(this);
+            //obj1.say();
+        }
+        
+        
+    }
+    // obj1.say.call(obj2);
+    // obj2.say1()
+
+    // let test = obj1.say;
+    // test()
+    obj2.say1();
+</script>

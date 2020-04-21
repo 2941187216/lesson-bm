@@ -81,4 +81,31 @@ realHeight: 160px
 div{
     
 }
+
+- ES6中，有所改变：var、function声明的全局变量，依然是顶层对象的属性；let、const、class声明的全局变量不属于顶层对象的属性，也就是说ES6开始，全局变量和顶层对象的属性开始分离、脱钩
+
+
+## 预编译四步
+- 创建AO对象(Activation Object) 作用域 执行期上下文
+- 找形参和变量声明，将变量和形参名作为AO属性名，值为undefined
+- 将实参值和形参统一
+- 在函数体里面找函数声明，值赋予函数体
+
+eg:function fn (a) {
+            console.log(a);
+            var a = 123;
+            console.log(a);
+            function a () {}
+            console.log(a);
+            var b = function () {}
+            console.log(b);
+            function d () {}
+        }
+        fn(1)
+        AO {
+            a: function a (){},
+            b: undefined,
+            d:function d(){}
+        }
+  
   

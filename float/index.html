@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /* position:absolute; float: left; */
+        /* 打内部把元素转换成inline-block */
+        .wrapper {
+            /* width: 500px;
+            height: 300px; */
+            float: left;
+            border: 2px solid red;
+            /* height: 100px; */
+        }
+
+        /* .wrapper::after {
+            content:"";
+            clear: both;
+             伪元素为行内元素，需将其改为块级元素 
+            display: block; 
+        } */
+
+        .content {
+            float: left;
+            color: #fff;
+            /* margin-left: 10px;
+            margin-bottom: 10px; */
+            background-color: black;
+            width: 100px;
+            height: 100px;
+        }
+
+        /* p {
+            border-top: 0px solid green;
+            clear: both;
+        } */
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content">1</div>
+        <div class="content">2</div>
+        <div class="content">3</div>
+        <!-- <div class="content">4</div>
+        <div class="content">5</div>
+        <div class="content">6</div>
+        <div class="content">7</div>
+        <div class="content">8</div>
+        <div class="content">9</div> -->
+        <!-- <p></p> -->
+    </div>
+    
+</body>
+</html>

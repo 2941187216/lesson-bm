@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            opacity: 0.5;
+        }
+
+        .demo {
+            width: 150px;
+            height: 150px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1.浮动元素产生了浮动流
+    所有产生了浮动流的元素，快级元素看不到他们
+    产生了bfc的元素和文本类（带有inline）属性的元素以及文本都能看到浮动元素 -->
+    <div class="box"></div>
+    <div class="demo"></div>
+</body>
+</html>

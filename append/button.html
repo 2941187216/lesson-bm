@@ -34,6 +34,7 @@
   class LikeButton {
     constructor() {
       // isLiked
+      this.el = null;
       this.state = { isLiked: false}
     }
     render() {
@@ -41,24 +42,38 @@
       // addEventListener? dom node-type 1 
       //  dom createElement appendChild 
       // 一半DOM,   innerHTML
+      console.log(this, 'render');
       this.el = createDOMFromString(`
         <button id='like-btn'>
-          <span class='link-text'>${this.state.isLiked?'取消':'点赞'}</span>
+          <span class='like-text'>${this.state.isLiked?'取消':'点赞'}</span>
         </button>
       `)
-      this.el.addEventListener('click', () => console.log('click'), false);
+      //  this 
+      // this  button 对象 
+      //changeLikeText 到外面写是一种优化 代码的职责分离
+      this.el.addEventListener('click', this.changeLikeText.bind(this) , false);
       return this.el
     }
+    // 一个方法就做一件事情 
+    changeLikeText () {
+      // this.state.isLiked改变一下
+      // console.log(this);  //this 被改写了
+      // ? 
+      console.log(this, 'bind 后')
+      this.state.isLiked = !this.state.isLiked;
+      // console.log(this.state.isLiked);
+      // 修改按钮文字呢？ 
+      // this.render();
+      const likeText =  this.el.querySelector('.like-text');
+      likeText.innerHTML = this.state.isLiked? '取消': '点赞';
+    }
+
   }
 
-  // changeLikeText () {
-  //   // 改变this.state.isLiked
-
-  // }
-
-  // const wrapper = document.querySelector('.wrapper');
-  // const likeButton = new LikeButton();
-  // wrapper.appendChild(likeButton.render());
+  const wrapper = document.querySelector('.wrapper');
+  const likeButton = new LikeButton();
+  // render 函数， 执行， 调用方式， 作为对象的方法
+  wrapper.appendChild(likeButton.render());
   // 复用
   // const likeButton2 = new LikeButton();
   // wrapper.innerHTML += likeButton2.render();
